@@ -47,6 +47,8 @@ function gitRawCommits (rawGitOpts, rawExecOpts) {
   const execOpts = normalizeExecOpts(rawExecOpts)
   const args = getGitArgs(gitOpts)
 
+  args.pop() //增加这一行，把最后一个参数--merges去掉。
+
   if (gitOpts.debug) {
     gitOpts.debug('Your git-log command is:\ngit ' + args.join(' '))
   }
