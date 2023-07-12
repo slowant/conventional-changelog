@@ -25,8 +25,8 @@ function assignOpts (options) {
     revertPattern: /^Revert\s"([\s\S]*)"\s*This reverts commit (\w*)\./,
     revertCorrespondence: ['header', 'hash'],
     warn: function () {},
-    mergePattern: null,
-    mergeCorrespondence: null,
+    mergePattern: /^Merge (remote-tracking )?branch '.+'/, //原来为null，修改为这个
+    mergeCorrespondence: ['header', 'scope', 'subject'], //原来为null，修改为这个
     ...options
   }
 
